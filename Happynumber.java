@@ -1,50 +1,46 @@
-package p1;
+package ak;
 
 import java.util.Scanner;
 
 public class Happynumber {
+	static void happy(int n) {
+		int temp = n;
+		int count = 1;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the range (start end):");
-        int start = sc.nextInt();
-        int end = sc.nextInt();
+		for (int i = 0; i <= 10; i++) {
+			int sum = 0;count++;
+			while (n != 0) {
+				
+				
+				int digit = n % 10;
+				sum += digit * digit;
+				n /= 10;
 
-        // Loop through the range to find happy numbers
-        for (int i = start; i <= end; i++) {
-            int iter = finditer(i);
+			
 
-            if (iter != -1) {
-                System.out.println(i + "  " + iter);
-            }
-        }
+			}
+			n=sum;
+			if (sum == 1) {
+				System.out.println(temp + " " + count);break;
 
-        sc.close();
-    }
+			}
+			
 
-    public static int finditer(int num) {
-        int count = 1;
+		}
+		
+		
+	}
 
-        // Iterate until the number becomes 1 or the count exceeds 10
-        while (num != 1 && count < 10) {
-            num = sumofSquare(num);
-           ++ count;
-        }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Start:");
+		int x = sc.nextInt();
+		System.out.println("End:");
+		int y = sc.nextInt();
+		for (int i = x; i <= y; i++) {
+			happy(i);
+		}
+	}
 
-        if (num == 1) {
-            return count;
-        } else {
-            return -1; // Number didn't reach 1 within 10 iterations
-        }
-    }
-
-    public static int sumofSquare(int num) {
-        int sum = 0;
-        while (num != 0) {
-            int digit = num % 10;
-            sum += digit * digit;
-            num /= 10;
-        }
-        return sum;
-    }
 }
