@@ -40,7 +40,7 @@ public class QueueArrayCIrcular {
 	           }
 	           int front = arr[0];
 	        
-	           rear--;
+	           front++;//rear--;
 	             return front;
 	         }
 
